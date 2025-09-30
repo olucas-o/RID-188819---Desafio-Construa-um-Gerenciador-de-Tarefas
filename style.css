@@ -1,0 +1,118 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background: #f6f9ff;
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+header {
+  margin: 2rem 0 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+main {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+form input {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0 1rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #1e4ed8;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  padding: 0.8rem;
+  margin-bottom: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.task span {
+  font-size: 1rem;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.task button:hover {
+  background: #1e4ed8;
+}
+
+.task .check {
+  font-size: 1.2rem;
+  color: #10b981;
+}
+
+footer {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+@media (max-width: 480px) {
+  form {
+    flex-direction: column;
+  }
+
+  form button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
