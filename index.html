@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Board de Tarefas</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Fonte Rubik -->
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header>
-    <h1>Board de Tarefas</h1>
-  </header>
+<body class="fundo-decorado">
+  <div class="container animar">
+    <h1>Board de tarefas</h1>
 
-  <main>
-    <!-- Formulário para adicionar tarefas -->
-    <form id="task-form">
-      <input type="text" id="task-name" placeholder="Nome da tarefa" required>
-      <input type="text" id="task-label" placeholder="Etiqueta">
-      <button type="submit">+</button>
-    </form>
+    <div class="input-group">
+      <input type="text" id="tarefa" placeholder="Nome da tarefa" />
+      <input type="text" id="etiqueta" placeholder="Etiqueta" />
+      <button id="add-btn" onclick="adicionarTarefa()">
+        <img src="button.png" alt="Adicionar Tarefa" />
+      </button>
+    </div>
 
-    <!-- Lista de tarefas -->
-    <section id="task-list"></section>
-  </main>
+    <ul id="lista"></ul>
 
-  <footer>
-    <p id="task-counter">0 tarefas concluídas</p>
-  </footer>
+    <p id="contador" class="contador"></p>
+  </div>
 
   <script src="script.js"></script>
 </body>

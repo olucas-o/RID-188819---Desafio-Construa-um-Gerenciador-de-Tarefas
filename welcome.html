@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bem-vindo | Lista de Tarefa</title>
+  <style>
+    /* ======= RESET ======= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* ======= BODY ======= */
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f0f7ff, #ffffff);
+      overflow: hidden;
+      position: relative;
+      transition: opacity 0.8s ease;
+    }
+
+    /* ======= TÍTULO ======= */
+    h1 {
+      font-size: 2.4rem;
+      color: #003366;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+      text-align: center;
+      z-index: 2;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    /* ======= BOTÃO ======= */
+    button {
+      padding: 12px 40px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      z-index: 2;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* ======= FORMAS GEOMÉTRICAS ======= */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.25;
+      background: #007bff;
+      filter: blur(60px);
+      animation: float 8s ease-in-out infinite alternate;
+    }
+
+    .shape:nth-child(1) {
+      width: 200px;
+      height: 200px;
+      top: -50px;
+      left: -60px;
+      animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      bottom: 60px;
+      right: 40px;
+      animation-delay: 1s;
+      background: #00aaff;
+    }
+
+    .shape:nth-child(3) {
+      width: 100px;
+      height: 100px;
+      top: 30%;
+      right: 10%;
+      animation-delay: 2s;
+      background: #66bfff;
+    }
+
+    /* ======= ANIMAÇÕES ======= */
+    @keyframes float {
+      from {
+        transform: translateY(0px) scale(1);
+      }
+      to {
+        transform: translateY(20px) scale(1.1);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Formas geométricas animadas -->
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+
+  <!-- Conteúdo -->
+  <h1>Bem-vindo ao<br><strong>Board de Tarefa</strong></h1>
+  <button id="entrar">Entrar</button>
+
+  <script>
+    const button = document.getElementById('entrar');
+    button.addEventListener('click', () => {
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 800);
+    });
+  </script>
+</body>
+</html>

@@ -1,118 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: 'Rubik', sans-serif;
-  background: #f6f9ff;
-  color: #1a1a1a;
+  background-color: #f7f9ff;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
-header {
-  margin: 2rem 0 1rem;
+/* Fundo com formas geométricas suaves */
+.fundo-decorado::before,
+.fundo-decorado::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(100, 160, 255, 0.15);
+  z-index: 0;
 }
 
-header h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111;
+.fundo-decorado::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -150px;
 }
 
-main {
+.fundo-decorado::after {
+  width: 350px;
+  height: 350px;
+  bottom: -120px;
+  right: -100px;
+}
+
+/* Container central */
+.container {
+  position: relative;
+  z-index: 1;
   background: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  width: 480px;
+  max-width: 90%;
+  text-align: center;
+  animation: fadeInUp 0.8s ease forwards;
 }
 
-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+/* Animação de entrada */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-form input {
-  flex: 1;
-  padding: 0.6rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1rem;
+h1 {
+  color: #1a2b6d;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
-form button {
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  padding: 0 1rem;
-  border-radius: 6px;
-  font-size: 1.2rem;
+/* Container que alinha os itens */
+.input-group {
+  display: flex;         /* Coloca os itens lado a lado */
+  align-items: center;   /* Alinha verticalmente no centro (MUITO IMPORTANTE) */
+  gap: 10px;             /* Espaço de 10px entre cada item */
+}
+
+/* Estilo para os campos de texto (input) */
+.input-group input {
+  flex: 1; /* Faz os inputs ocuparem o espaço disponível */
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease;
+  height: 44px; /* Altura padrão */
+  min-width: 0;
+}
+
+/* Foco do input */
+.input-group input:focus {
+  border-color: #357bff;
+}
+
+/* BOTÃO - AGORA SIMPLES E ALINHADO PELO FLEXBOX */
+#add-btn {
+  /* Removemos toda a parte de position: absolute */
+  
+  background-color: transparent; /* Fundo transparente, como você pediu */
+  border: none;                  /* Sem borda */
   cursor: pointer;
+  padding: 0;                    /* Sem espaçamento interno */
+  flex-shrink: 0;
+  /* A altura e alinhamento serão controlados pelo flexbox do .input-group */
+  /* Isso garante que ele fique perfeitamente alinhado com os inputs */
 }
 
-form button:hover {
-  background: #1e4ed8;
+/* Efeito de hover suave (opcional) */
+#add-btn:hover {
+  opacity: 0.7; /* Deixa o ícone um pouco mais claro ao passar o mouse */
 }
 
-.task {
+/* A IMAGEM DENTRO DO BOTÃO */
+#add-btn img {
+  width: 36px;   /* Define o tamanho final do seu botão/ícone */
+  height: 36px;
+  display: block; /* Evita espaços indesejados abaixo da imagem */
+}
+ul {
+  list-style: none;
+  text-align: left;
+  margin-top: 10px;
+}
+
+li {
+  background: #f8faff;
+  border: 1px solid #e4e8ff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f9fafb;
-  padding: 0.8rem;
-  margin-bottom: 0.6rem;
-  border-radius: 8px;
-  border: 1px solid #eee;
+  transition: 0.3s ease;
 }
 
-.task span {
-  font-size: 1rem;
+li:hover {
+  background: #f1f4ff;
 }
 
-.task.completed span {
-  text-decoration: line-through;
-  color: #888;
+.tarefa-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.task button {
-  background: #2563eb;
+.tarefa-info strong {
+  color: #2a2a2a;
+}
+
+.etiqueta {
+  background: #eef3ff;
+  color: #4a6aff;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 20px;
+  margin-right: 6px;
+}
+
+.data {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.btn-concluir {
+  background-color: #357bff;
   color: white;
   border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.task button:hover {
-  background: #1e4ed8;
+.btn-concluir:hover {
+  background-color: #225dd3;
 }
 
-.task .check {
-  font-size: 1.2rem;
-  color: #10b981;
+.concluida strong {
+  text-decoration: line-through;
+  color: #888;
+  opacity: 0.6;
 }
 
-footer {
-  margin: 1rem 0;
+.concluida .etiqueta,
+.concluida .data {
+  opacity: 0.5;
+}
+
+.concluida .btn-concluir {
+  background-color: #26c281;
+  cursor: default;
+}
+
+.contador {
   font-size: 0.9rem;
-  color: #444;
-}
-
-@media (max-width: 480px) {
-  form {
-    flex-direction: column;
-  }
-
-  form button {
-    width: 100%;
-    margin-top: 0.5rem;
-  }
+  color: #777;
+  margin-top: 10px;
+  text-align: right;
 }
